@@ -1,0 +1,31 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 123.57.5.40:8848
+    gateway:
+      routes:
+        - id: login_route
+          uri: lb://login     #发送给login服务
+          predicates:
+            - Path=/api/login/**
+          filters:
+            - RewritePath=/api/login/(?<segment>.*),/login/$\{segment}
+        - id: display_route
+          uri: lb://display     #发送给display服务
+          predicates:
+            - Path=/api/display/**
+          filters:
+            - RewritePath=/api/display/(?<segment>.*),/display/$\{segment}
+        - id: shopping_route
+          uri: lb://shopping     #发送给shopping服务
+          predicates:
+            - Path=/api/shopping/**
+          filters:
+            - RewritePath=/api/shopping/(?<segment>.*),/shopping/$\{segment}
+
+
+  application:
+    name: gateway
+server:
+  port: 88

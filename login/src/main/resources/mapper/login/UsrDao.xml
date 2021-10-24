@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ccy.login.dao.UsrDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.ccy.login.entity.UsrEntity" id="usrMap">
+        <result property="usrId" column="usr_id"/>
+        <result property="acc" column="acc"/>
+        <result property="pwd" column="pwd"/>
+    </resultMap>
+
+
+</mapper>
